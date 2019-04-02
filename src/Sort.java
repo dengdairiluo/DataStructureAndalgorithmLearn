@@ -41,8 +41,9 @@ public final class Sort {
             for (int i = gap; i < a.length; i++) {
                 AnyType tmp = a[i];
                 for (j = i; j >= gap &&
-                        tmp.compareTo(a[j - gap]) < 0; j -= gap)
+                        tmp.compareTo(a[j - gap]) < 0; j -= gap) {
                     a[j] = a[j - gap];
+                }
                 a[j] = tmp;
             }
         }
@@ -91,7 +92,7 @@ public final class Sort {
      */
     public static <AnyType extends Comparable<? super AnyType>>
     void heapsort(AnyType[] a) {
-        for (int i = a.length / 2 - 1; i >= 0; i--)  /* buildHeap */ {
+        for (int i = a.length / 2 - 1; i >= 0; i--) { /* buildHeap */
             percDown(a, i, a.length);
         }
         for (int i = a.length - 1; i > 0; i--) {
@@ -121,8 +122,7 @@ public final class Sort {
      * @param right    the right-most index of the subarray.
      */
     private static <AnyType extends Comparable<? super AnyType>>
-    void mergeSort(AnyType[] a, AnyType[] tmpArray,
-                   int left, int right) {
+    void mergeSort(AnyType[] a, AnyType[] tmpArray, int left, int right) {
         if (left < right) {
             int center = (left + right) / 2;
             mergeSort(a, tmpArray, left, center);
@@ -155,13 +155,13 @@ public final class Sort {
             }
         }
 
-        while (leftPos <= leftEnd)    // Copy rest of first half
-        {
+        while (leftPos <= leftEnd) {  // Copy rest of first half
+
             tmpArray[tmpPos++] = a[leftPos++];
         }
 
-        while (rightPos <= rightEnd)  // Copy rest of right half
-        {
+        while (rightPos <= rightEnd) {  // Copy rest of right half
+
             tmpArray[tmpPos++] = a[rightPos++];
         }
 
