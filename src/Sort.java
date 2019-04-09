@@ -29,12 +29,12 @@ public final class Sort {
     }
 
     /**
-     * Shellsort, using Shell's (poor) increments.
+     * Shell sort, using Shell's (poor) increments.
      *
      * @param a an array of Comparable items.
      */
     public static <AnyType extends Comparable<? super AnyType>>
-    void shellsort(AnyType[] a) {
+    void shellSort(AnyType[] a) {
         int j;
 
         for (int gap = a.length / 2; gap > 0; gap /= 2) {
@@ -50,7 +50,7 @@ public final class Sort {
     }
 
     /**
-     * Internal method for heapsort.
+     * Internal method for heapSort.
      *
      * @param i the index of an item in the heap.
      * @return the index of the left child.
@@ -60,11 +60,11 @@ public final class Sort {
     }
 
     /**
-     * Internal method for heapsort that is used in deleteMax and buildHeap.
+     * Internal method for heap Sort that is used in deleteMax and buildHeap.
      *
      * @param a an array of Comparable items.
-     * @index i the position from which to percolate down.
-     * @int n the logical size of the binary heap.
+     * @param i the position from which to percolate down.
+     * @param n the logical size of the binary heap.
      */
     private static <AnyType extends Comparable<? super AnyType>>
     void percDown(AnyType[] a, int i, int n) {
@@ -86,23 +86,23 @@ public final class Sort {
     }
 
     /**
-     * Standard heapsort.
+     * Standard heapSort.
      *
      * @param a an array of Comparable items.
      */
     public static <AnyType extends Comparable<? super AnyType>>
-    void heapsort(AnyType[] a) {
+    void heapSort(AnyType[] a) {
         for (int i = a.length / 2 - 1; i >= 0; i--) { /* buildHeap */
             percDown(a, i, a.length);
         }
         for (int i = a.length - 1; i > 0; i--) {
-            swapReferences(a, 0, i);                /* deleteMax */
+            swapReferences(a, 0, i); /* deleteMax */
             percDown(a, 0, i);
         }
     }
 
     /**
-     * Mergesort algorithm.
+     * MergeSort algorithm.
      *
      * @param a an array of Comparable items.
      */
@@ -172,12 +172,11 @@ public final class Sort {
     }
 
     /**
-     * Quicksort algorithm.
-     *
+     * QuickSort algorithm.
      * @param a an array of Comparable items.
      */
     public static <AnyType extends Comparable<? super AnyType>>
-    void quicksort(AnyType[] a) {
+    void quickSort(AnyType[] a) {
         quicksort(a, 0, a.length - 1);
     }
 
@@ -217,7 +216,7 @@ public final class Sort {
     }
 
     /**
-     * Internal quicksort method that makes recursive calls.
+     * Internal quickSort method that makes recursive calls.
      * Uses median-of-three partitioning and a cutoff of 10.
      *
      * @param a     an array of Comparable items.
@@ -253,8 +252,8 @@ public final class Sort {
     }
 
     /**
-     * Internal insertion sort routine for subarrays
-     * that is used by quicksort.
+     * Internal insertion sort routine for subArrays
+     * that is used by quickSort.
      *
      * @param a     an array of Comparable items.
      * @param left  the left-most index of the subarray.
@@ -348,11 +347,11 @@ public final class Sort {
             checkSort(a);
 
             Random.permute(a);
-            Sort.heapsort(a);
+            Sort.heapSort(a);
             checkSort(a);
 
             Random.permute(a);
-            Sort.shellsort(a);
+            Sort.shellSort(a);
             checkSort(a);
 
             Random.permute(a);
@@ -360,7 +359,7 @@ public final class Sort {
             checkSort(a);
 
             Random.permute(a);
-            Sort.quicksort(a);
+            Sort.quickSort(a);
             checkSort(a);
 
             Random.permute(a);
