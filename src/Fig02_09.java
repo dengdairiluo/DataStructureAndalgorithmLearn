@@ -34,10 +34,12 @@ public class Fig02_09 {
     {
         int SIZE = 8;
         Integer [ ] a = new Integer [ SIZE ];
-        for( int i = 0; i < SIZE; i++ )
+        for( int i = 0; i < SIZE; i++ ) {
             a[ i ] = i * 2;
+        }
 
-        for( int i = 0; i < SIZE * 2; i++ )
+        for( int i = 0; i < SIZE * 2; i++ ) {
             System.out.println( "Found " + i + " at " + binarySearch( a, i ) );
+        }
     }
 }
