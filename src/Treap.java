@@ -47,8 +47,9 @@ public class Treap<AnyType extends Comparable<? super AnyType>> {
             t.insert(i);
         System.out.println("Inserts complete");
 
-        for (int i = 1; i < NUMS; i += 2)
+        for (int i = 1; i < NUMS; i += 2) {
             t.remove(i);
+        }
         System.out.println("Removes complete");
 
         if (NUMS < 40) {
