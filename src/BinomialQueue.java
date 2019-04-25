@@ -164,8 +164,9 @@ public final class BinomialQueue<AnyType extends Comparable<? super AnyType>> {
      * @return the smallest item, or throw UnderflowException if empty.
      */
     public AnyType findMin() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new UnderflowException();
+        }
 
         return theTrees[findMinIndex()].element;
     }
@@ -180,13 +181,15 @@ public final class BinomialQueue<AnyType extends Comparable<? super AnyType>> {
         int i;
         int minIndex;
 
-        for (i = 0; theTrees[i] == null; i++)
-            ;
+        for (i = 0; theTrees[i] == null; i++) {
+        }
 
-        for (minIndex = i; i < theTrees.length; i++)
+        for (minIndex = i; i < theTrees.length; i++) {
             if (theTrees[i] != null &&
-                    theTrees[i].element.compareTo(theTrees[minIndex].element) < 0)
+                    theTrees[i].element.compareTo(theTrees[minIndex].element) < 0) {
                 minIndex = i;
+            }
+        }
 
         return minIndex;
     }
@@ -197,8 +200,9 @@ public final class BinomialQueue<AnyType extends Comparable<? super AnyType>> {
      * @return the smallest item, or throw UnderflowException if empty.
      */
     public AnyType deleteMin() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new UnderflowException();
+        }
 
         int minIndex = findMinIndex();
         AnyType minItem = theTrees[minIndex].element;
@@ -239,8 +243,9 @@ public final class BinomialQueue<AnyType extends Comparable<? super AnyType>> {
      */
     public void makeEmpty() {
         currentSize = 0;
-        for (int i = 0; i < theTrees.length; i++)
+        for (int i = 0; i < theTrees.length; i++) {
             theTrees[i] = null;
+        }
     }
 
     /**
